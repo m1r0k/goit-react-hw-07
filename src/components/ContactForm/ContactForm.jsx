@@ -3,12 +3,13 @@ import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact, selectContacts } from "../../redux/contactsSlice";
+import { selectContacts } from "../../redux/contactsSlice";
 import { Toaster } from "react-hot-toast";
 import ErrorToast from "../Toast/ErrorToast";
 import SuccessToast from "../Toast/SuccessToast";
+import { addContact } from "../../redux/contactsOps";
 
-const phoneRegExp = /^(\d{3}-\d{2}-\d{2})$/;
+const phoneRegExp = /^(\d{3}-\d{3}-\d{4})$/;
 const contactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short!")
@@ -72,7 +73,7 @@ export default function ContactForm() {
             type="tel"
             name="number"
             id={elementId + "-number"}
-            placeholder="xxx-xx-xx"
+            placeholder="xxx-xxx-xxxx"
           />
           <ErrorMessage
             className={css.error}
