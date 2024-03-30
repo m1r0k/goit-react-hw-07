@@ -8,7 +8,6 @@ export default function ContactList() {
 
   return (
     <ul className={css.list}>
-      {contacts.length === 0 && <p>Create your first contact 😉</p>}
       {contacts.map((contact) => (
         <li className={css.item} key={contact.id}>
           <Contact contact={contact}></Contact>
