@@ -25,8 +25,8 @@ export default function App() {
       <h1 className={css.header}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {error && <Error>Error message</Error>}
-      {loading && <Loader>Loading message</Loader>}
+      {error && <Error>Something went wrong! Please reload.</Error>}
+      {loading && <Loader />}
       <ContactList />
       <Toaster />
     </Layout>
